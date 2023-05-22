@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Families.css';
+import { Link } from 'react-router-dom';
 
-function Families() {
+
+import lannisterImage from '../../images/lannisterImage.jpg';
+import targaryenImage from '../../images/targaryenImage.jpg';
+import starkImage from '../../images/starkImage.jpg';
+import tarlyImage from '../../images/tarlyImage.jpg';
+import baratheonImage from '../../images/baratheonImage.jpg';
+import tyrellImage from '../../images/tyrellImage.jpg';
+import boltonImage from '../../images/boltonImage.jpg';
+import mormontImage from '../../images/mormontImage.jpg';
+import greyjoyImage from '../../images/greyjoyImage.jpg';
+
+const Families = () => {
   const [families, setFamilies] = useState([]);
 
   useEffect(() => {
     axios
       .get('https://thronesapi.com/api/v2/Characters')
-      .then(function (response) {
+      .then((response) => {
         const allFamilies = response.data.map((character) => character.family);
         const uniqueFamilies = [...new Set(allFamilies)];
         const mergedFamilies = mergeSimilarFamilies(uniqueFamilies);
         setFamilies(mergedFamilies);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }, []);
@@ -29,9 +41,12 @@ function Families() {
       );
 
       if (existingFamily) {
-        mergedFamilies[existingFamily] = [...mergedFamilies[existingFamily], family];
+        mergedFamilies[existingFamily] = [
+          ...mergedFamilies[existingFamily],
+          { name: family, image: getFamilyImage(existingFamily) },
+        ];
       } else {
-        mergedFamilies[normalizedFamily] = [family];
+        mergedFamilies[normalizedFamily] = [{ name: family, image: getFamilyImage(normalizedFamily) }];
       }
     });
 
@@ -61,7 +76,7 @@ function Families() {
   };
 
   const areSimilarNames = (name1, name2) => {
-    const similarityThreshold = 0.8; 
+    const similarityThreshold = 0.8;
 
     const distance = levenshteinDistance(name1.toLowerCase(), name2.toLowerCase());
     const similarity = 1 - distance / Math.max(name1.length, name2.length);
@@ -95,23 +110,56 @@ function Families() {
     return dp[m][n];
   };
 
+  const getFamilyImage = (family) => {
+    switch (family) {
+      case 'Lannister':
+        return lannisterImage;
+      case 'Targaryen':
+        return targaryenImage;
+      case 'Stark':
+        return starkImage;
+      case 'House Tarly':
+        return tarlyImage;
+      case 'Baratheon':
+        return baratheonImage;
+      case 'Tyrell':
+        return tyrellImage;
+      case 'Bolton':
+        return boltonImage;
+      case 'Mormont':
+        return mormontImage;
+      case 'Greyjoy':
+        return greyjoyImage;
+      default:
+        return null;
+    }
+  };
+
+  const filteredFamilies = Object.entries(families).filter(([normalizedFamily, similarFamilies]) =>
+    similarFamilies[0].image
+  );
+
   return (
     <div className="families-container">
       <h1 className="families-title">Families</h1>
       <div className="families-grid">
-        {Object.entries(families).map(([normalizedFamily, similarFamilies], index) => (
+        {filteredFamilies.map(([normalizedFamily, similarFamilies], index) => (
           <div key={index} className="family-group">
-            <div className="family-group-title">{normalizedFamily}</div>
-            <ul className="family-group-names">
-              {similarFamilies.map((family, subIndex) => (
-                <li key={subIndex}>{family}</li>
-              ))}
-            </ul>
+            <Link to={`/families/${normalizedFamily}`}>
+              <div className="family-group-container">
+                <div className="family-group-title">{normalizedFamily}</div>
+                <img
+                  src={similarFamilies[0].image}
+                  alt={normalizedFamily}
+                  className="family-group-image"
+                />
+              </div>
+            </Link>
           </div>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default Families;

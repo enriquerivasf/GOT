@@ -1,0 +1,20 @@
+.family-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .family-details-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .family-details-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
