@@ -62,6 +62,7 @@ const Families = () => {
       { pattern: /(House Baratheon|Baratheon)/i, replacement: 'Baratheon' },
       { pattern: /(House Greyjoy|Greyjoy)/i, replacement: 'Greyjoy' },
       { pattern: /Lorath|Lorathi/i, replacement: 'Lorath' },
+      { pattern: /House Tarly/i, replacement: 'Tarly' },
     ];
 
     let normalized = name.trim();
@@ -118,7 +119,7 @@ const Families = () => {
         return targaryenImage;
       case 'Stark':
         return starkImage;
-      case 'House Tarly':
+      case 'Tarly':
         return tarlyImage;
       case 'Baratheon':
         return baratheonImage;
