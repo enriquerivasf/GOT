@@ -29,7 +29,7 @@ const Families = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  });
 
   const mergeSimilarFamilies = (families) => {
     const mergedFamilies = {};

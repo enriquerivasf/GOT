@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-
+// Character.js
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Character(props) {
-
   if (props.isDetailed) {
     return (
       <div>
@@ -15,14 +15,15 @@ function Character(props) {
       </div>
     );
   }
+
   return (
-    <Link to={`/characters/${props.object.firstName}-${props.object.lastName}`}
-      state={{ id: props.object.id }}>
-      <img src={props.object.imageUrl} alt={props.object.fullName} />
-      <p>{props.object.fullName}</p>
+    <Link to={`/characters/${props.object.firstName}-${props.object.lastName}`} state={{ id: props.object.id }}>
+      <div>
+        <img src={props.object.imageUrl} alt={props.object.fullName} />
+        <p>{props.object.fullName}</p>
+      </div>
     </Link>
   );
 }
-
 
 export default Character;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './FamilyDetails.css';
-
+import { Link } from 'react-router-dom';
 import lannisterImage from '../../images/lannisterImage.jpg';
 import targaryenImage from '../../images/targaryenImage.jpg';
 import starkImage from '../../images/starkImage.jpg';
@@ -45,29 +45,29 @@ const FamilyDetails = () => {
     const variations = [];
     const lowerCaseName = name.toLowerCase();
   
-    variations.push(name); // Agregar variación exacta
-    variations.push(lowerCaseName); // Agregar variación en minúsculas
+    variations.push(name); 
+    variations.push(lowerCaseName); 
   
     if (lowerCaseName.includes('house')) {
       const houseName = lowerCaseName.replace('house', '').trim();
-      variations.push(houseName); // Agregar variación sin 'house'
+      variations.push(houseName); 
     }
   
     if (lowerCaseName.endsWith('lannister')) {
       const lannisterName = lowerCaseName.replace('lannister', '').trim();
-      variations.push(lannisterName); // Agregar variación sin 'lannister'
+      variations.push(lannisterName);
     }
   
     if (lowerCaseName.endsWith('lanister')) {
       const lanisterName = lowerCaseName.replace('lanister', '').trim();
-      variations.push(lanisterName); // Agregar variación sin 'lanister'
+      variations.push(lanisterName); 
     }
   
     return variations;
   };
 
   const [characters, setCharacters] = useState([]);
-  const [familyImage, setFamilyImage] = useState(null); // Agregar estado para la imagen de la casa
+  const [familyImage, setFamilyImage] = useState(null); 
 
   useEffect(() => {
     axios
@@ -75,13 +75,22 @@ const FamilyDetails = () => {
       .then(function (response) {
         const filteredCharacters = response.data.filter((character) => {
           const characterVariations = getCharacterVariations(character.family);
-          return characterVariations.includes(familyName.toLowerCase()) ||
+          return (
+            characterVariations.includes(familyName.toLowerCase()) ||
             (familyName === 'Targaryen' && characterVariations.includes('targaryan')) ||
-            (familyName === 'Lannister' && characterVariations.includes('house lannister'));
+            (familyName === 'Lannister' && characterVariations.includes('house lannister'))
+          );
         });
 
-        if (filteredCharacters.length > 0) {
-          setCharacters(filteredCharacters);
+        const uniqueCharacters = filteredCharacters.reduce((unique, character) => {
+          if (!unique.some((c) => c.fullName === character.fullName)) {
+            unique.push(character);
+          }
+          return unique;
+        }, []);
+
+        if (uniqueCharacters.length > 0) {
+          setCharacters(uniqueCharacters);
         } else {
           console.log('No se encontraron personajes de la casa:', familyName);
         }
@@ -90,7 +99,6 @@ const FamilyDetails = () => {
         console.log('Error al obtener los personajes:', error);
       });
 
-    // Obtener la imagen de la casa
     const image = getImageByFamilyName(familyName);
     setFamilyImage(image);
   }, [familyName]);
@@ -124,13 +132,17 @@ const FamilyDetails = () => {
           <h3>Personajes:</h3>
           <ul>
             {characters.map((character) => (
-              <li key={character.id}>{character.fullName}</li>
+              <li key={character.id}>
+                <Link to={`/characters/${character.id}`}>{character.fullName}</Link>
+              </li>
             ))}
           </ul>
         </div>
       ) : (
         <div>No hay personajes disponibles.</div>
       )}
+
+      <Link to="/">Volver</Link> {/* Botón de volver */}
     </div>
   );
 };
