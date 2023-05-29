@@ -10,10 +10,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Families />} />
-        <Route path="/Main" element={<Main />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/families" element={<Families />} />
         <Route path="/families/:familyName" element={<FamilyDetails />} />
-        <Route path="/characters/:characterId" element={<CharacterDetails/>}></Route>
+        <Route path="/characters/:characterId" element={<CharacterDetails />}></Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

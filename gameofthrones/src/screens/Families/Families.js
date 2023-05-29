@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Families.css';
 import { Link } from 'react-router-dom';
-
-
 import lannisterImage from '../../images/lannisterImage.jpg';
 import targaryenImage from '../../images/targaryenImage.jpg';
 import starkImage from '../../images/starkImage.jpg';
@@ -13,6 +11,7 @@ import tyrellImage from '../../images/tyrellImage.jpg';
 import boltonImage from '../../images/boltonImage.jpg';
 import mormontImage from '../../images/mormontImage.jpg';
 import greyjoyImage from '../../images/greyjoyImage.jpg';
+document.body.classList.add('Families');
 
 const Families = () => {
   const [families, setFamilies] = useState([]);
@@ -141,25 +140,25 @@ const Families = () => {
   );
 
   return (
-    <div className="families-container">
-      <h1 className="families-title">Families</h1>
-      <div className="families-grid">
-        {filteredFamilies.map(([normalizedFamily, similarFamilies], index) => (
-          <div key={index} className="family-group">
-            <Link to={`/families/${normalizedFamily}`}>
-              <div className="family-group-container">
-                <div className="family-group-title">{normalizedFamily}</div>
-                <img
-                  src={similarFamilies[0].image}
-                  alt={normalizedFamily}
-                  className="family-group-image"
-                />
-              </div>
-            </Link>
-          </div>
-        ))}
+      <div className="families-container" >
+        <h1 className="families-title">Families</h1>
+        <div className="families-grid">
+          {filteredFamilies.map(([normalizedFamily, similarFamilies], index) => (
+            <div key={index} className="family-group">
+              <Link to={`/families/${normalizedFamily}`}>
+                <div className="family-group-container">
+                  <div className="family-group-title">{normalizedFamily}</div>
+                  <img
+                    src={similarFamilies[0].image}
+                    alt={normalizedFamily}
+                    className="family-group-image"
+                  />
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
   );
 };
 

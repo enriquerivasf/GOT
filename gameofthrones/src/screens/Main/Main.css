@@ -1,0 +1,63 @@
+.main-container {
+    background-image: url('../../images/fondo1Image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+}
+
+.inicio {
+    font-family: '../../font/game-of-thrones-maisfontes.afa8/game-of-thrones.ttf';
+    background-color: #333;
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 41%;
+    padding: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 20px;
+}
+
+.inicio:hover {
+    background-color: #37363686;
+    color: goldenrod;
+}
+
+@media screen and (min-width:320px) and (max-width: 374px) {
+    .main-container {
+        background-image: url('../../images/fondo1MovilImage.jpg');
+    }
+
+    .inicio {
+        background-color: #37363686;
+        color: goldenrod;
+        top: 60%;
+        left: 12%;
+    }
+}
+@media screen and (min-width:375px) and (max-width: 767px) {
+    .main-container {
+        background-image: url('../../images/fondo1MovilImage.jpg');
+    }
+
+    .inicio {
+        background-color: #37363686;
+        color: goldenrod;
+        top: 60%;
+        left: 17%;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 1024px) {
+    .main-container {
+        background-image: url('../../images/fondo1TabletImage.jpg');
+    }
+
+    .inicio {
+        background-color: #37363686;
+        color: goldenrod;
+        top: 55%;
+        left: 33%;
+    }
+}
