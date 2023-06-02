@@ -11,6 +11,11 @@ import tyrellImage from '../../images/tyrellImage.jpg';
 import boltonImage from '../../images/boltonImage.jpg';
 import mormontImage from '../../images/mormontImage.jpg';
 import greyjoyImage from '../../images/greyjoyImage.jpg';
+import banderasPequeñas from '../../images/banderasImagePequeña.png';
+import banderasMedianas from '../../images/banderasImageMediana.png';
+import banderasGrandes from '../../images/banderasImageGrande.png';
+
+//Sobra?
 document.body.classList.add('Families');
 
 const Families = () => {
@@ -76,38 +81,8 @@ const Families = () => {
   };
 
   const areSimilarNames = (name1, name2) => {
-    const similarityThreshold = 0.8;
 
-    const distance = levenshteinDistance(name1.toLowerCase(), name2.toLowerCase());
-    const similarity = 1 - distance / Math.max(name1.length, name2.length);
 
-    return similarity >= similarityThreshold;
-  };
-
-  const levenshteinDistance = (str1, str2) => {
-    const m = str1.length;
-    const n = str2.length;
-    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
-
-    for (let i = 0; i <= m; i++) {
-      dp[i][0] = i;
-    }
-
-    for (let j = 0; j <= n; j++) {
-      dp[0][j] = j;
-    }
-
-    for (let i = 1; i <= m; i++) {
-      for (let j = 1; j <= n; j++) {
-        if (str1[i - 1] === str2[j - 1]) {
-          dp[i][j] = dp[i - 1][j - 1];
-        } else {
-          dp[i][j] = Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]) + 1;
-        }
-      }
-    }
-
-    return dp[m][n];
   };
 
   const getFamilyImage = (family) => {
@@ -140,25 +115,34 @@ const Families = () => {
   );
 
   return (
-      <div className="families-container" >
-        <h1 className="families-title">Families</h1>
-        <div className="families-grid">
-          {filteredFamilies.map(([normalizedFamily, similarFamilies], index) => (
-            <div key={index} className="family-group">
-              <Link to={`/families/${normalizedFamily}`}>
-                <div className="family-group-container">
-                  <div className="family-group-title">{normalizedFamily}</div>
-                  <img
-                    src={similarFamilies[0].image}
-                    alt={normalizedFamily}
-                    className="family-group-image"
-                  />
-                </div>
-              </Link>
-            </div>
-          ))}
-        </div>
+    <div className="families-container" >
+      <div className='banderaImage'>
+        <img src={banderasPequeñas} alt="Imagen de banderas pequeña" className='banderasPequeñas'></img>
+        <img src={banderasMedianas} alt="Imagen de banderas mediana" className='banderasMedianas'></img>
+        <img src={banderasGrandes} alt="Imagen de banderas grande" className='banderasGrandes'></img>
       </div>
+      <div className='families-title-container'>
+        <div className='separador'></div>
+        <div><h1 className="families-title">Families</h1></div>
+        <div className='separador'></div>
+      </div>
+      <div className="families-grid">
+        {filteredFamilies.map(([normalizedFamily, similarFamilies], index) => (
+          <div key={index} className="family-group">
+            <Link to={`/families/${normalizedFamily}`} style={{ textDecoration: 'none' }}>
+              <div className="family-group-container">
+                <div className="family-group-title">{normalizedFamily}</div>
+                <img
+                  src={similarFamilies[0].image}
+                  alt={normalizedFamily}
+                  className="family-group-image"
+                />
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

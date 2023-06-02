@@ -40,34 +40,23 @@ const FamilyDetails = () => {
         return null;
     }
   };
-  
+
   const getCharacterVariations = (name) => {
     const variations = [];
     const lowerCaseName = name.toLowerCase();
-  
-    variations.push(name); 
-    variations.push(lowerCaseName); 
-  
+
+    variations.push(name);
+    variations.push(lowerCaseName);
+
     if (lowerCaseName.includes('house')) {
       const houseName = lowerCaseName.replace('house', '').trim();
-      variations.push(houseName); 
+      variations.push(houseName);
     }
-  
-    if (lowerCaseName.endsWith('lannister')) {
-      const lannisterName = lowerCaseName.replace('lannister', '').trim();
-      variations.push(lannisterName);
-    }
-  
-    if (lowerCaseName.endsWith('lanister')) {
-      const lanisterName = lowerCaseName.replace('lanister', '').trim();
-      variations.push(lanisterName); 
-    }
-  
     return variations;
   };
 
   const [characters, setCharacters] = useState([]);
-  const [familyImage, setFamilyImage] = useState(null); 
+  const [familyImage, setFamilyImage] = useState(null);
 
   useEffect(() => {
     axios
@@ -129,11 +118,11 @@ const FamilyDetails = () => {
 
       {characters.length > 0 ? (
         <div>
-          <h3>Personajes:</h3>
-          <ul>
+          <h1 className='family-details-character'>Personajes:</h1>
+          <ul className='family-details-character-list'>
             {characters.map((character) => (
               <li key={character.id}>
-                <Link to={`/characters/${character.id}`}>{character.fullName}</Link>
+                <Link to={`/characters/${character.id}`} style={{ textDecoration: 'none', color: 'white' }}>{character.fullName}</Link>
               </li>
             ))}
           </ul>
@@ -142,7 +131,7 @@ const FamilyDetails = () => {
         <div>No hay personajes disponibles.</div>
       )}
 
-      <Link to="/">Volver</Link> {/* Botón de volver */}
+      <Link to="/Families"><button className='family-button-volver'>Volver</button></Link> {/* Botón de volver */}
     </div>
   );
 };

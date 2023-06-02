@@ -1,4 +1,8 @@
 .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-image: url('../../images/fondo1Image.jpg');
     background-size: cover;
     background-position: center;
@@ -6,58 +10,98 @@
     position: relative;
 }
 
-.inicio {
-    font-family: '../../font/game-of-thrones-maisfontes.afa8/game-of-thrones.ttf';
+.buttonFamilies {
     background-color: #333;
     color: white;
-    position: absolute;
-    top: 60%;
-    left: 41%;
     padding: 2%;
     padding-left: 3%;
     padding-right: 3%;
     font-size: 20px;
+    margin-bottom: 12%;
+    margin-top: 120%;
+    width: 300px;
+    height: 60px;
 }
 
-.inicio:hover {
+.buttonFamilies:hover {
     background-color: #37363686;
     color: goldenrod;
 }
 
-@media screen and (min-width:320px) and (max-width: 374px) {
+.buttonMap {
+    background-color: #333;
+    color: white;
+    font-family: '../../font/game-of-thrones-maisfontes.afa8/game-of-thrones.ttf';
+    padding: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 20px;
+    width: 300px;
+    height: 60px;
+}
+
+.buttonMap:hover {
+    background-color: #37363686;
+    color: goldenrod;
+}
+
+@media screen and (min-width: 320px) and (max-width: 374px) {
     .main-container {
         background-image: url('../../images/fondo1MovilImage.jpg');
     }
 
-    .inicio {
+    .buttonFamilies {
         background-color: #37363686;
         color: goldenrod;
-        top: 60%;
-        left: 12%;
+        margin-top: 60%;
+        margin-bottom: 20%;
+        width: 250px;
     }
+
+    .buttonMap {
+        background-color: #37363686;
+        color: goldenrod;
+        width: 250px;
+    }
+
 }
-@media screen and (min-width:375px) and (max-width: 767px) {
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
     .main-container {
         background-image: url('../../images/fondo1MovilImage.jpg');
     }
 
-    .inicio {
+    .buttonFamilies {
         background-color: #37363686;
         color: goldenrod;
-        top: 60%;
-        left: 17%;
+        margin-top: 60%;
+        margin-bottom: 20%;
+        width: 250px;
+    }
+
+    .buttonMap {
+        background-color: #37363686;
+        color: goldenrod;
+        width: 250px;
     }
 }
 
-@media screen and (min-width:768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     .main-container {
         background-image: url('../../images/fondo1TabletImage.jpg');
     }
 
-    .inicio {
+    .buttonFamilies {
         background-color: #37363686;
         color: goldenrod;
-        top: 55%;
-        left: 33%;
+        margin-top: 60%;
+        margin-bottom: 20%;
+
+    }
+
+    .buttonMap {
+        background-color: #37363686;
+        color: goldenrod;
+
     }
 }

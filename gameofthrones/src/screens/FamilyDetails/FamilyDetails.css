@@ -1,62 +1,175 @@
 .family-details-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 40px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background-image: url('../../images/fondo2Image.jfif');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+
+}
+
+.family-details-character-list {
+  text-align: justify;
+  font-size: 28px;
+}
+
+.family-details-title {
+  font-size: 60px;
+  margin-bottom: 2%;
+  color: goldenrod;
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
+
+.family-button-volver {
+  margin-top: 40%;
+  margin-bottom: 30%;
+  padding: 10%;
+  text-decoration: none;
+  background-color: #37363686;
+  color: goldenrod;
+  font-size: 28px;
+  border-radius: 10%;
+  width: 150px;
+}
+
+.family-details-character {
+  color: goldenrod;
+  font-size: 28px;
+  margin-bottom: 10%;
+
+}
+
+.family-details-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.family-details-image-container {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.family-details-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.family-details-description {
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  font-size: 28px;
+}
+
+.family-details-character-list li {
+  padding-bottom: 4%;
+}
+
+/* Estilos responsive */
+@media screen and (min-width: 320px) and (max-width: 374px) {
   .family-details-title {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 28px;
+    margin-top: 10%;
+    margin-bottom: 10%;
   }
-  
-  .family-details-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .family-details-image-container {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  
-  .family-details-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
+
   .family-details-description {
-    margin-top: 20px;
-    text-align: center;
+    font-size: 20px;
+    margin-top: 10%;
   }
-  
-  /* Estilos responsive */
-  
-  @media screen and (max-width: 768px) {
-    .family-details-content {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .family-details-image-container {
-      width: 200px; 
-      height: 200px;
-    }
+
+  .family-details-character-list {
+    font-size: 20px;
+
   }
-  
-  @media screen and (max-width: 480px) {
-    .family-details-title {
-      font-size: 24px; 
-    }
-  
-    .family-details-description {
-      font-size: 14px; 
-    }
+
+  .family-button-volver {
+
+    padding: 10%;
+    font-size: 24px;
+    width: 150px;
   }
-  
+
+  .family-details-character {
+    font-size: 24px;
+    margin-bottom: 10%;
+    margin-top: 15%;
+
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .family-details-title {
+    font-size: 28px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .family-details-description {
+    font-size: 20px;
+    margin-top: 10%;
+  }
+
+  .family-details-character-list {
+    font-size: 20px;
+  }
+
+  .family-button-volver {
+
+    padding: 10%;
+    font-size: 24px;
+    width: 150px;
+  }
+
+  .family-details-character {
+    font-size: 24px;
+    margin-bottom: 10%;
+    margin-top: 15%;
+
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .family-details-title {
+    font-size: 40px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+  .family-details-description {
+    font-size: 24px;
+    margin-top: 10%;
+  }
+
+  .family-details-character-list {
+    font-size: 24px;
+  }
+
+  .family-button-volver {
+    padding: 10%;
+    font-size: 26px;
+    width: 150px;
+  }
+
+  .family-details-character {
+    font-size: 26px;
+    margin-bottom: 10%;
+    margin-top: 15%;
+
+  }
+}

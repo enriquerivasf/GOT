@@ -1,0 +1,192 @@
+.character-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background-image: url('../../images/fondo2Image.jfif');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.character-title {
+    color: goldenrod;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 12%;
+    margin-right: 12%;
+    font-size: 28px;
+    text-align: center;
+}
+
+.character-title-title {
+    color: goldenrod;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 12%;
+    margin-right: 12%;
+    font-size: 28px;
+    text-align: center;
+}
+
+.character-title-span {
+    color: white;
+    border-radius: 10px;
+    text-align: justify;
+}
+.character-title-descripcion{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 12%;
+    margin-right: 12%;
+    font-size: 28px;
+}
+.character-title-span-descripcion {
+    color: white;
+    border-radius: 10px;
+    text-align: justify;
+}
+
+.character-title-div {
+    color: white;
+    background-color: #44444488;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.character-titles-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 35%;
+    margin-right: 20%;
+    margin-top: 1.5%;
+}
+
+.Character-button-volver {
+    margin-top: 40%;
+    margin-bottom: 30%;
+    padding: 10%;
+    text-decoration: none;
+    background-color: #37363686;
+    color: goldenrod;
+    font-size: 28px;
+    border-radius: 10%;
+    width: 150px;
+}
+
+.character-image {
+    width: 300px;
+    height: 300px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 374px) {
+
+    .character-image {
+        width: 220px;
+        height: 220px;
+        margin-top: 4%;
+    }
+
+    .character-title {
+        margin-top: 6%;
+        margin-bottom: 2%;
+        margin-left: 8%;
+        margin-right: 12%;
+        font-size: 24px;
+    }
+
+    .character-titles-container {
+        width: 100%;
+        margin-left: 4%;
+        margin-top: 1.5%;
+
+    }
+
+    .character-title-title {
+        color: goldenrod;
+        margin-top: 8%;
+        margin-bottom: 2%;
+        margin-left: 12%;
+        margin-right: 12%;
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .character-title-span {
+        text-align: center;
+        font-size: 20px;
+    }
+    .character-title-span-descripcion {
+        text-align: center;
+        font-size: 20px;
+        margin-left: 6%;
+    }
+
+    .Character-button-volver {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+   
+    .character-image {
+        width: 225px;
+        height: 225px;
+        margin-top: 4%;
+    }
+
+    .character-title {
+        margin-top: 6%;
+        margin-bottom: 2%;
+        margin-left: 12%;
+        margin-right: 12%;
+        font-size: 24px;
+    }
+
+    .character-titles-container {
+        width: 100%;
+        margin-left: 4%;
+        margin-top: 1.5%;
+
+    }
+
+    .character-title-title {
+        color: goldenrod;
+        margin-top: 8%;
+        margin-bottom: 2%;
+        margin-left: 12%;
+        margin-right: 12%;
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .character-title-span {
+        text-align: center;
+        font-size: 20px;
+    }
+    .character-title-span-descripcion {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .Character-button-volver {
+        font-size: 24px;
+    }
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .character-titles-container {
+        width: 100%;
+        margin-left: 18%;
+        margin-right: 20%;
+        margin-top: 1.5%;
+
+    }
+}

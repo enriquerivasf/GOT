@@ -5,12 +5,14 @@ import Main from './screens/Main/Main';
 import Families from './screens/Families/Families';
 import FamilyDetails from './screens/FamilyDetails/FamilyDetails';
 import CharacterDetails from './screens/CharacterDetails/CharacterDetails';
+import Map from './screens/Map/Map';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/Map" element={<Map />} />
         <Route path="/families" element={<Families />} />
         <Route path="/families/:familyName" element={<FamilyDetails />} />
         <Route path="/characters/:characterId" element={<CharacterDetails />}></Route>

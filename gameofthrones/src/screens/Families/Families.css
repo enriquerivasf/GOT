@@ -1,12 +1,26 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  font-family: '../../font/game-of-thrones-maisfontes.afa8/game-of-thrones.ttf';
+}
+
+.banderasGrandes{
+  position: relative;
+  height: 48vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banderasPequeñas, .banderasMedianas{
+  display:none;
 }
 
 .families-container {
+  position: relative;
   background-image: url('../../images/fondo2Image.jfif');
   background-size: cover;
   background-position: center;
+  min-height: 110vh;
 }
 
 .families-grid {
@@ -15,13 +29,29 @@
   gap: 20px;
 }
 
-.families-container {
-  padding-left: 2%;
-  padding-right: 2%;
+.separador:first-of-type {
+  border-top: 1px solid goldenrod;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.separador:not(:first-of-type) {
+  border-top: 1px solid goldenrod;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.families-title-container {
+  display: flex;
+  align-items: center;
 }
 
 .families-title {
   text-align: center;
+  font-size: 60px;
+  color: goldenrod;
+  margin-top: 4%;
+  margin-bottom: 2%;
 }
 
 .family-group {
@@ -30,7 +60,11 @@
   width: 270px;
   height: 270px;
   border-radius: 100%;
-  margin: auto;
+  margin: 7% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .family-group-image {
@@ -39,13 +73,14 @@
   object-fit: cover;
   margin-bottom: 10px;
   vertical-align: middle;
+
 }
 
 .family-group-title {
   font-weight: bold;
   width: 100%;
-  background-color: white;
-  color: black;
+  color: goldenrod;
+  font-size: 24px;
   padding-top: 2%;
   padding-bottom: 2%;
 }
@@ -61,19 +96,53 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
+    height: 3000px;
+    margin: 2%;
+    
   }
-
-  .family-group {
+  .banderasPequeñas{
+    display:block;
+    position: relative;
+    height:12vh;
     width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .banderasGrandes, .banderasMedianas{
+    display:none;
   }
 
-  .families-container {
+  .banderaImage {
+    height: 11vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .family-group-title,
+  .family-group-image {
     margin-left: 5%;
     margin-right: 5%;
   }
+
+  .family-group-image {
+    width:125px;
+  }
+
+  .family-group {
+    width: 220px;
+    height: 220px;
+  }
+
+  .families-container {
+    background-image: url('../../images/fondo2ImageMovil.jpg');
+
+  }
+
+
 }
 
-@media screen and (min-width:768px) and (max-width: 1024px) {
+@media screen and (min-width:768px) and (max-width: 1023px) {
   .families-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -81,6 +150,29 @@
   }
 
   .family-group {
-    width: 80%;
+    width: 270px;
+    height: 270px
   }
+
+  .banderaImage {
+    height: 200px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .banderaImage > img{
+    margin-bottom: 30px;
+  }
+  .banderasMedianas{
+    display:block;
+    position: relative;
+    height: 30vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .banderasPequeñas, .banderasGrandes{
+    display:none;
+  }
+
 }
