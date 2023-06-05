@@ -14,8 +14,9 @@ import mormontImage from '../../images/mormontImage.jpg';
 import greyjoyImage from '../../images/greyjoyImage.jpg';
 
 const FamilyDetails = () => {
-  const { familyName } = useParams();
+  const { familyName } = useParams();// Se obtiene el parámetro familyName de la URL utilizando el hook useParams()
 
+// Función para obtener la imagen según el nombre de la familia
   const getImageByFamilyName = (name) => {
     switch (name) {
       case 'Lannister':
@@ -41,6 +42,7 @@ const FamilyDetails = () => {
     }
   };
 
+  // Función para obtener variaciones de un nombre de personaje
   const getCharacterVariations = (name) => {
     const variations = [];
     const lowerCaseName = name.toLowerCase();
@@ -55,8 +57,8 @@ const FamilyDetails = () => {
     return variations;
   };
 
-  const [characters, setCharacters] = useState([]);
-  const [familyImage, setFamilyImage] = useState(null);
+  const [characters, setCharacters] = useState([]); // Estado para almacenar los personajes
+  const [familyImage, setFamilyImage] = useState(null); // Estado para almacenar la imagen de la familia
 
   useEffect(() => {
     axios
@@ -88,10 +90,11 @@ const FamilyDetails = () => {
         console.log('Error al obtener los personajes:', error);
       });
 
-    const image = getImageByFamilyName(familyName);
-    setFamilyImage(image);
+    const image = getImageByFamilyName(familyName); // Se obtiene la imagen según el nombre de la familia
+    setFamilyImage(image); // Establece la imagen de la familia en el estado
   }, [familyName]);
 
+  // Descripciones de las familias
   const descriptions = {
     Lannister: 'Los Lannister son una de las casas más poderosas en los Siete Reinos. Su lema es "Oye mi rugido". Son conocidos por su riqueza y por pagar sus deudas. Procedentes de Roca Casterly, su emblema es un león dorado sobre fondo carmesí. Han gobernado como la Casa principal de las Tierras de Occidente durante siglos.',
     Targaryen: 'Los Targaryen son conocidos por su linaje de sangre de dragón y su historia legendaria. Durante siglos gobernaron los Siete Reinos hasta que fueron derrocados. Su lema es "Fuego y sangre". Procedentes de Valyria, su emblema es un dragón de tres cabezas. La Casa Targaryen es famosa por su habilidad para controlar y montar dragones.',
@@ -104,7 +107,7 @@ const FamilyDetails = () => {
     Greyjoy: 'La Casa Greyjoy es una casa noble de las Islas del Hierro. Son conocidos por su habilidad en la navegación y su dominio del mar. Su lema es "Nosotros no sembramos". Procedentes de Pyke, su emblema es un kraken. Los Greyjoy son audaces y saqueadores, y su cultura se centra en la supremacía marítima y la independencia.',
   };
 
-  const familyDescription = descriptions[familyName] || 'No hay descripción disponible';
+  const familyDescription = descriptions[familyName] || 'No hay descripción disponible';// Obtiene la descripción de la familia o muestra un mensaje predeterminado
 
   return (
     <div className="family-details-container">

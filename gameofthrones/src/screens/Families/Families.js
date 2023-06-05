@@ -22,8 +22,11 @@ const Families = () => {
     axios
       .get('https://thronesapi.com/api/v2/Characters')
       .then((response) => {
+         // Obtiene todas las familias de la respuesta
         const allFamilies = response.data.map((character) => character.family);
+        // Filtra las familias para obtener solo valores únicos
         const uniqueFamilies = [...new Set(allFamilies)];
+        // Fusiona familias similares y establecer el estado
         const mergedFamilies = mergeSimilarFamilies(uniqueFamilies);
         setFamilies(mergedFamilies);
       })
@@ -32,6 +35,7 @@ const Families = () => {
       });
   });
 
+  // Función para fusionar familias similares
   const mergeSimilarFamilies = (families) => {
     const mergedFamilies = {};
 
@@ -54,6 +58,7 @@ const Families = () => {
     return mergedFamilies;
   };
 
+  // Función para normalizar el nombre de la familia
   const normalizeFamilyName = (name) => {
     const normalizationRules = [
       { pattern: /House (Lannist(e|e)r|Lanister)/i, replacement: 'Lannister' },
@@ -77,10 +82,12 @@ const Families = () => {
     return normalized;
   };
 
+  // Función para verificar si dos nombres de familias son similares
   const areSimilarNames = (name1, name2) => {
-
+    // Devuelve true si son similares, de lo contrario, devuelve false
   };
 
+  // Función para obtener la imagen de una familia en base a su nombre
   const getFamilyImage = (family) => {
     switch (family) {
       case 'Lannister':
@@ -106,6 +113,8 @@ const Families = () => {
     }
   };
 
+  
+  // Filtrar las familias fusionadas para eliminar aquellas sin imagen
   const filteredFamilies = Object.entries(families).filter(([normalizedFamily, similarFamilies]) =>
     similarFamilies[0].image
   );

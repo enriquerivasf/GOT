@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import './CharacterDetails.css';
 
+// Descripciones de cada personaje
 const characterDescriptions = {
   0: 'Daenerys Targaryen - Nacida en 284 d.C. en Rocadragón, la princesa Daenerys fue hija póstuma del rey Aerys II Targaryen y su hermana esposa, la reina Rhaella Targaryen. Daenerys nació en medio de una impresionante tormenta que azotó la isla de Rocadragón, lugar donde se habían refugiado su madre, quien murió en el parto, y su hermano Viserys. Por esta razón es en ocasiones llamada "Daenerys de la Tormenta." Daenerys es descrita como una muchacha adolescente de aspecto valyrio clásico, con el cabello rubio plateado, los ojos de color púrpura y contextura delgada. Se dice que posee una cierta semejanza física a la reina Naerys Targaryen, aunque Daenerys es más alta. Daenerys creció aterrorizada y abusada psicológicamente por su hermano Viserys. Sin embargo, eventualmente se convierte en una adolescente segura de sí misma y sus seguidores generalmente la aprecian y tratan con gran respeto y amor. Ser Jorah Mormont y Ser Barristan Selmy la han comparado con su hermano fallecido, el príncipe Rhaegar Targaryen, en términos de valentía, honorabilidad y nobleza. Como varios descendientes de los señores dragón del Feudo Franco de Valyria, Daenerys sueña con dragones. Aunque está familiarizada con la Fe de los Siete y cree en la existencia de los dioses, no parece seguir una fe en particular.',
   1: 'Samwell Tarly - Samwell Tarly es el hijo mayor de Lord Randyll Tarly y Lady Melessa Florent. La niñez de Samwell estuvo marcada por los insultos y quejas de su padre, Lord Randyll Tarly, quien trató en vano de convertir al tímido y gentil Samwell en un caballero. Samwell es descrito como un muchacho gordo y torpe. Tiene ojos claros, el cabello oscuro y un rostro con forma de luna llena. Aunque es tímido, cobarde e inseguro de sí mismo, es inteligente y reflexivo, lo que sin embargo no demuestra abiertamente. No le gusta la visión de la sangre y es aficionado a la lectura y música.',
@@ -43,6 +44,7 @@ const CharacterDetails = () => {
   const description = characterDescriptions[characterId];
 
   useEffect(() => {
+     // Obtiene los detalles del personaje desde la API
     axios
       .get(`https://thronesapi.com/api/v2/Characters/${characterId}`)
       .then(function (response) {
