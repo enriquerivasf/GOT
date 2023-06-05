@@ -15,9 +15,6 @@ import banderasPequeñas from '../../images/banderasImagePequeña.png';
 import banderasMedianas from '../../images/banderasImageMediana.png';
 import banderasGrandes from '../../images/banderasImageGrande.png';
 
-//Sobra?
-document.body.classList.add('Families');
-
 const Families = () => {
   const [families, setFamilies] = useState([]);
 
@@ -81,7 +78,6 @@ const Families = () => {
   };
 
   const areSimilarNames = (name1, name2) => {
-
 
   };
 
